@@ -1,8 +1,6 @@
 <template>
     <div class="TheHeader">
-        <v-container fluid class="pa-0">
-            <div class="TheHeader-title">ADAKMARIN</div>
-        </v-container>
+        <div class="TheHeader-title">ADAKMARIN</div>
     </div>
 </template>
 
