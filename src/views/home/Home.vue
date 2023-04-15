@@ -1,8 +1,11 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
-const TheHeader = defineAsyncComponent(() => import('./TheHeader.vue'))
+const HomeHeader = defineAsyncComponent(() => import('./HomeHeader.vue'))
+const HomeSlider = defineAsyncComponent(() => import('./HomeSlider.vue'))
+
 </script>
 
 <template>
-  <TheHeader></TheHeader>
+  <HomeHeader />
+  <HomeSlider />
 </template>
