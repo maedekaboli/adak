@@ -4,6 +4,7 @@ const HomeHeader = defineAsyncComponent(() => import('./HomeHeader.vue'))
 const HomeSlider = defineAsyncComponent(() => import('./HomeSlider.vue'))
 const CallForPrice = defineAsyncComponent(() => import('./CallForPrice.vue'))
 const WhyUs = defineAsyncComponent(() => import('./WhyUs.vue'))
+const OurClients = defineAsyncComponent(() => import('./OurClients.vue'))
 </script>
 
 <template>
@@ -11,4 +12,5 @@ const WhyUs = defineAsyncComponent(() => import('./WhyUs.vue'))
   <HomeSlider />
   <CallForPrice />
   <WhyUs />
+  <OurClients />
 </template>

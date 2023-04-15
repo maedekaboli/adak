@@ -1,6 +1,7 @@
 <template>
     <div class="WhyUs">
         <v-container class="py-0">
+            <v-img cover src="/circle-pointer.svg" class="circle-question"></v-img>
             <v-row class="align-end">
                 <v-col cols="7">
                     <h1>چرا ما ؟</h1>
