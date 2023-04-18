@@ -1,0 +1,42 @@
+<script setup>
+defineProps({
+    title: String,
+    desc: String
+})
+</script>
+
+<template>
+    <div class="BlogTitleAndText">
+        <h2>{{ title }}</h2>
+        <p>{{ desc }}</p>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+.BlogTitleAndText {
+    h2 {
+        margin-bottom: 12px;
+        margin-top: 20px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 25px;
+        color: #3B5099;
+
+        &::before {
+            content: " ";
+            display: inline-block;
+            margin-left: 12px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #FC9802;
+        }
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 14px;
+        color: #808080;
+    }
+}
+</style>
