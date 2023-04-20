@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
 
+const SocialMedia = defineAsyncComponent(() => import('../../components/SocialMedia.vue'))
 const contactUs = ref([
     { prependAvatar: '/location.svg', title: 'تهران - خیابان جمالزاده شمالی .......' },
     { prependAvatar: '/call-calling.svg', title: '021-44444444' },
@@ -22,6 +23,7 @@ const contactUs = ref([
                             <div>{{ prependAvatar }}</div>
                         </template>
                     </v-list>
+                    <SocialMedia />
                 </v-col>
                 <v-col cols="6">1</v-col>
             </v-row>
@@ -39,7 +41,7 @@ const contactUs = ref([
         .v-list {
             background-color: inherit;
 
-            .v-list-item-title{
+            .v-list-item-title {
                 font-weight: 500;
                 font-size: 16px;
                 line-height: 25px;
@@ -69,4 +71,5 @@ const contactUs = ref([
         background: #E6EAEE;
         height: 59px;
     }
-}</style>
+}
+</style>
