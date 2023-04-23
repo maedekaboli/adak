@@ -14,7 +14,8 @@ const contactUs = ref([
     <div class="TheFooter">
         <div class="top-footer w-100">
             <v-row>
-                <v-col cols="6">
+                <v-col cols="6" class="contact-us">
+                    <h2>تماس با ما</h2>
                     <v-list :items="contactUs" item-props lines="three">
                         <template v-slot:title="{ title }">
                             <div>{{ title }}</div>
@@ -25,7 +26,28 @@ const contactUs = ref([
                     </v-list>
                     <SocialMedia />
                 </v-col>
-                <v-col cols="6">1</v-col>
+                <v-col cols="md-6" class="cooperation">
+                    <h2>درخواست همکاری</h2>
+                    <v-form>
+                        <v-col cols="6">
+                            <v-text-field variant="solo" hide-details v-model="firstname"
+                                label="نام نام خانوادگی"></v-text-field>
+                        </v-col>
+                        <v-col cols="6">
+                            <v-text-field variant="solo" hide-details v-model="lastname"
+                                label="شماره موبایل"></v-text-field>
+                        </v-col>
+                        <v-col cols="6">
+                            <v-select label="انتخاب شهر" hide-details
+                                :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                                variant="solo"></v-select> </v-col>
+                        <v-col cols="6">
+                            <v-btn color="#122771" class="w-100 text-white" size="large">
+                                ثبت درخواست
+                            </v-btn>
+                        </v-col>
+                    </v-form>
+                </v-col>
             </v-row>
         </div>
         <div class="bottom-footer">تمامی حقوق متعلق به سایت ....... می باشد </div>
@@ -38,6 +60,30 @@ const contactUs = ref([
     direction: rtl;
 
     .top-footer {
+        background: #3B5099;
+        padding-top: 55px;
+        padding-bottom: 62px;
+
+        h2 {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 37px;
+        }
+
+        .contact-us {
+            h2 {
+                margin-bottom: 33px;
+                color: #DCDCDC;
+            }
+        }
+
+        .cooperation {
+            h2 {
+                color: #F9F9F9;
+                margin-bottom: 22px;
+            }
+        }
+
         .v-list {
             background-color: inherit;
 
@@ -55,7 +101,6 @@ const contactUs = ref([
             }
         }
 
-        background: #3B5099;
     }
 
     .bottom-footer {
