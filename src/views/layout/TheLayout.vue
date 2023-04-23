@@ -7,9 +7,7 @@ import TheFooter from './TheFooter.vue'
     <v-layout>
         <TheNavbar />
         <v-main>
-            <v-container fluid class="pa-0">
-                <RouterView></RouterView>
-            </v-container>
+            <RouterView></RouterView>
             <TheFooter />
         </v-main>
     </v-layout>
