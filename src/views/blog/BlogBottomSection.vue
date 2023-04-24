@@ -9,7 +9,7 @@ const bottomItems = ref([
     { img: '/blog1.svg', title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' },
     { img: '/blog2.svg', title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' }
 ])
-const BlogTitleAndText = defineAsyncComponent(() => import('./BlogTitleAndText.vue'))
+const BlogTitleAndText = defineAsyncComponent(() => import('../../components/TitleAndText.vue'))
 const breakpoints = ref({
     0: {
         itemsToShow: 1.5,

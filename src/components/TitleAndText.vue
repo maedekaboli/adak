@@ -6,14 +6,14 @@ defineProps({
 </script>
 
 <template>
-    <div class="BlogTitleAndText">
+    <div class="TitleAndText">
         <h2>{{ title }}</h2>
         <p>{{ desc }}</p>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.BlogTitleAndText {
+.TitleAndText {
     h2 {
         margin-bottom: 12px;
         margin-top: 20px;
