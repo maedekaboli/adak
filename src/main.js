@@ -3,6 +3,7 @@ import './style.css'
 import App from './App.vue'
 import router from './routes/index'
 import "../src/assets/font/stylesheet.css"
+import "../src/assets/main.scss"
 
 // Vuetify
 import 'vuetify/styles'

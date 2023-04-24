@@ -122,7 +122,7 @@ const contactUs = ref([
         justify-content: center;
         font-weight: 500;
         font-size: 14px;
-        width: 100vw;
+        width: 100%;
         line-height: 22px;
         text-align: right;
         color: #373C3F;

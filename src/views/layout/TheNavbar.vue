@@ -1,23 +1,106 @@
+<script setup>
+import { ref } from 'vue'
+
+const navItems = ref([
+    { title: 'صفحه اصلی', path: '/' },
+    { title: 'خدمات ما', path: '/' },
+    { title: 'مقالات', path: '/blog' },
+    { title: 'تماس با ما', path: '/contactUs' },
+    { title: 'درباره ما', path: '/aboutUs' },
+    { title: 'راهنما', path: '/' },
+
+])
+</script>
+
 <template>
-    <v-app-bar flat absolute border>
-        <v-toolbar density="compact">
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <div class="TheNavbar">
+        <v-app-bar flat height="88">
+            <v-toolbar absolute color="white" density="compact" height="88">
+                <v-container class="d-flex align-center mx-md-16 mx-auto">
+                    <v-menu width="100%" transition="slide-y-transition">
+                        <template v-slot:activator="{ props }">
+                            <v-app-bar-nav-icon v-bind="props" class="d-md-none d-block"></v-app-bar-nav-icon>
+                        </template>
 
-            <v-toolbar-title>Title</v-toolbar-title>
+                        <v-list>
+                            <RouterLink v-for="(item, i) in navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
+                                <v-list-item class="dir-rtl" @click="navigate" role="link">
+                                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                </v-list-item>
+                            </RouterLink>
+                            <v-list-item class="dir-rtl">
+                                <v-btn variant="outlined" rounded="xl" color="#122771">
+                                    استعلام محصول
+                                </v-btn>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
 
-            <v-spacer></v-spacer>
+                    <v-toolbar-title class="text-md-right text-center">Adakmarin</v-toolbar-title>
 
-            <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
-            </v-btn>
+                    <ul class="navbar-items d-md-flex d-none">
+                        <RouterLink v-for="(item, i) in navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
+                            <li @click="navigate" role="link" class="mb-2"> {{ item.title }}
+                            </li>
+                        </RouterLink>
+                    </ul>
+                    <v-spacer></v-spacer>
 
-            <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-            </v-btn>
+                    <v-btn class="ml-2 d-md-block d-none" variant="outlined" rounded="xl" color="#122771">
+                        استعلام محصول
+                    </v-btn>
 
-            <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-        </v-toolbar>
-    </v-app-bar>
+                    <v-btn variant="text">
+                        <span class="d-md-block d-none">
+                            ورود / ثبت نام
+                        </span>
+                        <v-img width="24" class="mr-1" src="/login.svg"></v-img>
+                    </v-btn>
+                </v-container>
+            </v-toolbar>
+        </v-app-bar>
+    </div>
 </template>
+
+<style lang="scss">
+.TheNavbar {
+    direction: rtl;
+
+
+
+    .navbar-items {
+        list-style: none;
+
+        li {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 25px;
+            margin-left: 50px;
+            cursor: pointer;
+            color: #5A5A5A;
+        }
+    }
+
+    .v-toolbar {
+        .flex-grow-1 {
+            flex-grow: unset !important;
+        }
+    }
+
+    .v-toolbar-title {
+        font-style: normal;
+        font-weight: 900;
+        font-size: 30px;
+        line-height: 70px;
+        color: #181818;
+
+        &::first-letter {
+            text-transform: uppercase;
+            color: #122771;
+            font-size: 45px !important;
+
+        }
+    }
+}
+</style>

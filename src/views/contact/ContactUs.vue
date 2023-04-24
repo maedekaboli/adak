@@ -88,6 +88,7 @@ const tabItems = ref([
         font-weight: 700;
         font-size: 24px;
         line-height: 37px;
+        letter-spacing: normal;
 
         .v-btn__content {
             color: #3B5099;
