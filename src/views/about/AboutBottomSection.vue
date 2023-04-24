@@ -1,10 +1,3 @@
-<script setup>
-let t = 1800
-for (let i = 0; i <= 18; i++)
-    t = t + t * 20 / 100 + 100
-console.log(t)
-</script>
-
 <template>
     <v-container class="AboutBottomSection">
         <v-row>

@@ -38,6 +38,12 @@
             position: absolute;
             left: 50px;
             top: -40px;
+            z-index: 2;
+        }
+
+        .v-img:last-child {
+            position: relative;
+            z-index: 1;
         }
 
         .v-img {
