@@ -34,7 +34,14 @@ const items = ref([
 <style scoped lang="scss">
 .AboutMainSection {
     direction: rtl;
-    background-image: url('/mainBg.svg');
-    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-image: url('/aboutBg.svg');
+    background-size: contain;
+    height: 1070px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
 }
 </style>
