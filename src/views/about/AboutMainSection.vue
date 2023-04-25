@@ -13,17 +13,17 @@ const items = ref([
     <div class="AboutMainSection">
         <v-container>
             <v-row>
-                <v-col cols="md-6">
+                <v-col cols="md-6" sm="12">
                     <h2>درباره ما</h2>
                     <v-row>
-                        <v-col cols="md-6" v-for="(item, i) in items" :key="i">
+                        <v-col cols="md-6" sm="12" v-for="(item, i) in items" :key="i">
                             <TitleAndText :title="item.title" :desc="item.desc">
                             </TitleAndText>
                         </v-col>
                     </v-row>
                     <v-btn color="#3B5099" class="text-white mt-10">باتن</v-btn>
                 </v-col>
-                <v-col cols="md-6">
+                <v-col cols="md-6" sm="12">
                     <v-img src="/blog1.svg"></v-img>
                 </v-col>
             </v-row>
