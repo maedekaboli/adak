@@ -19,7 +19,7 @@ const navItems = ref([
                 <v-container class="d-flex align-center mx-md-16 mx-auto">
                     <v-menu width="100%" transition="slide-y-transition">
                         <template v-slot:activator="{ props }">
-                            <v-app-bar-nav-icon v-bind="props" class="d-md-none d-block"></v-app-bar-nav-icon>
+                            <v-app-bar-nav-icon v-bind="props" class="d-lg-none d-block"></v-app-bar-nav-icon>
                         </template>
 
                         <v-list>
@@ -38,7 +38,7 @@ const navItems = ref([
 
                     <v-toolbar-title class="text-md-right text-center">Adakmarin</v-toolbar-title>
 
-                    <ul class="navbar-items d-md-flex d-none">
+                    <ul class="navbar-items d-lg-flex d-none">
                         <RouterLink v-for="(item, i) in navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
                             <li @click="navigate" role="link" class="mb-2"> {{ item.title }}
                             </li>
@@ -66,7 +66,9 @@ const navItems = ref([
 .TheNavbar {
     direction: rtl;
 
-
+    .v-app-bar {
+        border-bottom: 1px solid #EFEFEF;
+    }
 
     .navbar-items {
         list-style: none;
@@ -83,6 +85,7 @@ const navItems = ref([
     }
 
     .v-toolbar {
+
         .flex-grow-1 {
             flex-grow: unset !important;
         }
@@ -99,6 +102,25 @@ const navItems = ref([
             text-transform: uppercase;
             color: #122771;
             font-size: 45px !important;
+
+        }
+    }
+
+    @media only screen and (max-width:768px) {
+        & {
+            .v-toolbar__content {
+                height: 36px !important;
+
+                .v-toolbar-title {
+                    margin-top: 10px;
+                    font-size: 20px;
+                    line-height: 31px;
+
+                    &::first-letter {
+                        font-size: 30px !important;
+                    }
+                }
+            }
 
         }
     }
