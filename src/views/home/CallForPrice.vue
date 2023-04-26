@@ -7,7 +7,7 @@
                 شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت
                 و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
             <v-btn variant="tonal">
-                Button
+                استعلام
             </v-btn>
         </v-container>
     </div>
@@ -16,8 +16,11 @@
 <style scoped lang="scss">
 .CallForPrice {
     background: #D9D9D9;
-    text-align: center;
     position: relative;
+    padding-bottom: 28px;
+    padding-top: 15px;
+    direction: rtl;
+    text-align: center;
 
     .circle-pointer {
         width: 109px;
@@ -47,6 +50,38 @@
         color: white;
         width: 252px;
         height: 62px;
+    }
+
+    @media only screen and (max-width:768px) {
+        h2 {
+            font-size: 20px;
+            line-height: 31px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+    }
+
+    @media only screen and (max-width:360px) {
+        h2 {
+            font-size: 16px;
+            line-height: 25px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .v-btn {
+            width: 100%;
+            height: 48px;
+        }
     }
 }
 </style>

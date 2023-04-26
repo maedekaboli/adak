@@ -15,11 +15,11 @@ const items = ref([
             <v-row>
                 <v-carousel height="510" hide-delimiters>
                     <template v-slot:prev="{ props }">
-                        <v-btn size="40" variant="outlined" rounded color="white" @click="props.onClick"
+                        <v-btn size="40" variant="outlined" color="white" @click="props.onClick"
                             icon="mdi-chevron-left"></v-btn>
                     </template>
                     <template v-slot:next="{ props }">
-                        <v-btn size="40" variant="outlined" rounded color="white" @click="props.onClick"
+                        <v-btn size="40" variant="outlined" color="white" @click="props.onClick"
                             icon="mdi-chevron-right"></v-btn>
                     </template>
                     <v-carousel-item class="d-flex align-center" v-for="(item, i) in items" :key="i" :src="item.img" cover>
@@ -44,6 +44,10 @@ const items = ref([
         width: 655px;
         margin: auto;
         text-align: center;
+    }
+
+    .v-btn {
+        border-radius: 50% !important;
     }
 
     .overlay {
