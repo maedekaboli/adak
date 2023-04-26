@@ -2,23 +2,24 @@
     <div class="WhyUs">
         <v-container class="py-0">
             <v-img cover src="/whyUs.svg" class="circle-pointer"></v-img>
-            <v-row class="align-end">
-                <v-col cols="7">
+            <v-row>
+                <v-col cols="lg-5" sm="6" class="mt-sm-16 mt-2">
+                    <video class="WhyUs-video" controls>
+                        <source src="https://www.aparat.com/v/qXnZ8" type="video/mp4">
+                        <source src="https://www.aparat.com/v/qXnZ8" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </v-col>
+                <v-col cols="lg-7" sm="6">
                     <h1>چرا ما ؟</h1>
                     <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
-                    <p class="mb-16">و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                    <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                        سطرآنچنان که لازم
                         است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
                         کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد و با
                         استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
                         برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
                         زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
-                </v-col>
-                <v-col cols="5">
-                    <video class="WhyUs-video" controls>
-                        <source src="movie.mp4" type="video/mp4">
-                        <source src="movie.ogg" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
                 </v-col>
             </v-row>
         </v-container>
@@ -31,6 +32,7 @@
     text-align: right;
     position: relative;
     padding: 60px 0 46px 0;
+    direction: rtl;
 
     .v-container {
         position: relative;
@@ -100,6 +102,21 @@
                 left: 39%;
             }
         }
+
+        h1 {
+            margin-bottom: 12px;
+            font-size: 24px;
+            line-height: 37px;
+        }
+
+        h2 {
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        p {
+            font-size: 12px;
+        }
     }
 
     @media only screen and (max-width:360px) {
@@ -113,6 +130,22 @@
                 font-size: 25px;
                 left: 39%;
             }
+        }
+
+        h1 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        h2 {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 12px;
         }
     }
 }
