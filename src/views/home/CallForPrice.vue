@@ -22,11 +22,19 @@
     direction: rtl;
     text-align: center;
 
+    .v-container {
+        position: relative;
+    }
+
     .circle-pointer {
         width: 109px;
         height: 109px;
         position: absolute;
-        top: -50%;
+        top: -70px;
+        left: 12px;
+        background-color: white;
+        z-index: 1;
+        border-radius: 50%;
     }
 
     h2 {
@@ -53,6 +61,12 @@
     }
 
     @media only screen and (max-width:768px) {
+        .circle-pointer {
+            width: 85px;
+            height: 85px;
+            top: -60px
+        }
+
         h2 {
             font-size: 20px;
             line-height: 31px;
@@ -66,6 +80,12 @@
     }
 
     @media only screen and (max-width:360px) {
+        .circle-pointer {
+            width: 52px;
+            height: 52px;
+            top: -45px
+        }
+
         h2 {
             font-size: 16px;
             line-height: 25px;
