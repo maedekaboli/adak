@@ -85,6 +85,9 @@ const navItems = ref([
     }
 
     .v-toolbar {
+        .v-toolbar__content {
+            justify-content: center;
+        }
 
         .flex-grow-1 {
             flex-grow: unset !important;
@@ -124,5 +127,4 @@ const navItems = ref([
 
         }
     }
-}
-</style>
+}</style>
