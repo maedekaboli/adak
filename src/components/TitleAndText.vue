@@ -38,5 +38,16 @@ defineProps({
         font-size: 14px;
         color: #808080;
     }
-}
-</style>
+
+    @media only screen and (max-width:768px) {
+        h2 {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 33px;
+        }
+    }
+}</style>

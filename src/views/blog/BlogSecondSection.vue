@@ -16,14 +16,18 @@ const itemsWithoutImg = ref([
     <div class="BlogSecondSection">
         <v-container>
             <v-row>
-                <v-col cols="md-4" v-for="(item, i) in itemsWithImg" :key="i">
+                <v-col cols="md-4" sm="6" v-for="(item, i) in itemsWithImg" :key="i">
                     <v-img width="100%" cover :src="item.img"></v-img>
                     <BlogTitleAndText :title="item.title" :desc="item.desc"></BlogTitleAndText>
                 </v-col>
                 <v-col cols="md-4">
                     <h2 class="main-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
-                    <BlogTitleAndText v-for="(item, i) in itemsWithoutImg" :key="i" :title="item.title" :desc="item.desc">
-                    </BlogTitleAndText>
+                    <v-row>
+                        <v-col class="pt-0" cols="md-12" sm="6" v-for="(item, i) in itemsWithoutImg" :key="i">
+                            <BlogTitleAndText :title="item.title" :desc="item.desc">
+                            </BlogTitleAndText>
+                        </v-col>
+                    </v-row>
                 </v-col>
             </v-row>
         </v-container>
@@ -41,6 +45,14 @@ const itemsWithoutImg = ref([
         line-height: 37px;
         margin-bottom: 30px;
         color: #181818;
+    }
+
+    @media only screen and (max-width:360px) {
+        .main-title {
+            font-size: 16px;
+            line-height: 25px;
+            margin-bottom: 8px;
+        }
     }
 }
 </style>
