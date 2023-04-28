@@ -1,13 +1,15 @@
+<script setup>
+import data from '../../json/home/CallForPrice.json'
+</script>
+
 <template>
     <div class="CallForPrice">
         <v-container>
             <v-img cover src="/circle-pointer.svg" class="circle-pointer"></v-img>
-            <h2>استعلام قیمت </h2>
-            <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
-                شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت
-                و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+            <h2>{{ data.title }}</h2>
+            <p>{{ data.text }}</p>
             <v-btn variant="tonal">
-                استعلام
+                {{ data.buttonText }}
             </v-btn>
         </v-container>
     </div>

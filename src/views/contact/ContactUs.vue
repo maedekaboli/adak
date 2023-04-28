@@ -14,18 +14,22 @@ const tabItems = ref([
     <div class="ContactUs">
         <v-container>
             <v-row>
-                <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
-                <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
-                    برای
-                    شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                    شصت
-                    و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                <v-col cols="12">
+                    <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
+                    <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                        است، و
+                        برای
+                        شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
+                        زیادی در
+                        شصت
+                        و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                </v-col>
             </v-row>
-            <v-row class="justify-center">
-                <v-col cols="md-8">
+            <div class="d-flex flex-wrap justify-center">
+                <v-col cols="md-8" class="pa-0">
                     <v-tabs v-model="tab" color="deep-purple-accent-4" align-tabs="center">
-                        <v-tab class="ml-6 mr-1" v-for="item in tabItems" :value="item.value" :key="item.value">
-                            <v-img class="mb-2 ml-2" :width="22" :src="item.img"></v-img>
+                        <v-tab class="ml-sm-6 ml-0 mr-1" v-for="item in tabItems" :value="item.value" :key="item.value">
+                            <v-img class="mb-sm-2 mb-0 ml-sm-2 ml-1" :width="22" :src="item.img"></v-img>
                             {{ item.title }}
                         </v-tab>
                     </v-tabs>
@@ -38,7 +42,7 @@ const tabItems = ref([
                     </v-window>
                     <SocialMedia class="justify-center mt-7" />
                 </v-col>
-            </v-row>
+            </div>
         </v-container>
     </div>
 </template>
@@ -113,6 +117,37 @@ const tabItems = ref([
 
         .v-card {
             border-radius: 16px;
+        }
+    }
+
+    @media only screen and (max-width:360px) {
+        h2 {
+            font-size: 16px;
+            line-height: 25px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 33px;
+            margin-bottom: 0;
+        }
+
+        .v-tabs--density-default {
+            --v-tabs-height: 55px;
+        }
+
+        .v-tab {
+            width: 99px;
+            height: 48px;
+            border-radius: 8px !important;
+            font-size: 16px;
+            line-height: 25px;
+
+            .v-img__img--contain {
+                width: 17px;
+                height: 17px;
+            }
         }
     }
 
