@@ -1,30 +1,25 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
+import data from '../../json/about/aboutUs.json'
 
 const TitleAndText = defineAsyncComponent(() => import('../../components/TitleAndText.vue'))
-const items = ref([
-    { title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' },
-    { title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' },
-    { title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' },
-    { title: 'لورم ایپسوم', desc: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز' }
-])
 </script>
 <template>
     <div class="AboutMainSection">
         <v-container>
             <v-row>
                 <v-col cols="md-6" sm="12">
-                    <h2>درباره ما</h2>
+                    <h2>{{ data.title }}</h2>
                     <v-row>
-                        <v-col cols="md-6" sm="12" v-for="(item, i) in items" :key="i">
+                        <v-col cols="md-6" sm="12" v-for="(item, i) in data.items" :key="i">
                             <TitleAndText :title="item.title" :desc="item.desc">
                             </TitleAndText>
                         </v-col>
                     </v-row>
-                    <v-btn color="#3B5099" class="text-white mt-10">باتن</v-btn>
+                    <v-btn color="#3B5099" class="text-white mt-10">{{ data.buttontext }}</v-btn>
                 </v-col>
                 <v-col cols="md-6" sm="12">
-                    <v-img src="/blog1.svg"></v-img>
+                    <v-img :src="data.image"></v-img>
                 </v-col>
             </v-row>
         </v-container>

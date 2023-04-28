@@ -1,17 +1,18 @@
+<script setup>
+import data from '../../json/about/ourTeam.json'
+</script>
+
 <template>
     <div class="AboutBottomSection">
         <v-container class="">
             <v-row>
                 <v-col cols="md-5" sm="6">
-                    <v-img src="/team.svg"></v-img>
+                    <v-img :src="data.image"></v-img>
                 </v-col>
                 <v-col cols="md-7" sm="6">
-                    <h1 class="mb-12 first-title">تیم ما</h1>
-                    <h1 class="mb-6 second-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h1>
-                    <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                        است، و
-                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
-                        زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                    <h1 class="mb-12 first-title">{{ data.firstTitle }}</h1>
+                    <h1 class="mb-6 second-title">{{ data.secondTitle }}</h1>
+                    <p>{{ data.text }}</p>
                 </v-col>
             </v-row>
         </v-container>

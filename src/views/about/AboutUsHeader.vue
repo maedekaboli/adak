@@ -1,10 +1,14 @@
+<script setup>
+import data from '../../json/about/header.json'
+</script>
+
 <template>
     <div class="AboutUsHeader">
         <v-container>
             <v-row>
                 <div class="title-and-btn px-3">
-                    <h1 class="mb-13">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h1>
-                    <v-btn width="252" height="62" color="#3B5099" class="text-white">ورود</v-btn>
+                    <h1 class="mb-13">{{ data.title }}</h1>
+                    <v-btn width="252" height="62" color="#3B5099" class="text-white">{{ data.buttontext }}</v-btn>
                 </div>
                 <div class="images">
                     <v-img src="/mosalas.svg"></v-img>
