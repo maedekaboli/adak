@@ -29,7 +29,7 @@ import data from '../../json/layout/navabr.json'
                     <v-toolbar-title class="text-md-right text-center">Adakmarin</v-toolbar-title>
 
                     <ul class="navbar-items d-lg-flex d-none">
-                        <RouterLink v-for="(item, i) in navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
+                        <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
                             <li @click="navigate" role="link" class="mb-2"> {{ item.title }}
                             </li>
                         </RouterLink>

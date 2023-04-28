@@ -1,13 +1,9 @@
 <script setup>
 import { ref, defineAsyncComponent } from 'vue'
+import data from '../../json/contact.json'
 
 const SocialMedia = defineAsyncComponent(() => import('../../components/SocialMedia.vue'))
 const tab = ref(null)
-const tabItems = ref([
-    { value: 1, img: '/location-blue.svg', title: 'آدرس ' },
-    { value: 2, img: '/sms-blue.svg', title: 'ایمیل' },
-    { value: 3, img: '/call-calling-blue.svg', title: 'تلفن' }
-])
 </script>
 
 <template>
@@ -15,28 +11,28 @@ const tabItems = ref([
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h2>
-                    <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                        است، و
-                        برای
-                        شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
-                        زیادی در
-                        شصت
-                        و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                    <h2>{{ data.title }}</h2>
+                    <p>{{ data.text }}</p>
                 </v-col>
             </v-row>
             <div class="d-flex flex-wrap justify-center">
                 <v-col cols="md-8" class="pa-0">
                     <v-tabs v-model="tab" color="deep-purple-accent-4" align-tabs="center">
-                        <v-tab class="ml-sm-6 ml-0 mr-1" v-for="item in tabItems" :value="item.value" :key="item.value">
+                        <v-tab class="ml-sm-6 ml-0 mr-1" v-for="(item, i) in data.tabItems" :value="i" :key="item.value">
                             <v-img class="mb-sm-2 mb-0 ml-sm-2 ml-1" :width="22" :src="item.img"></v-img>
                             {{ item.title }}
                         </v-tab>
                     </v-tabs>
                     <v-window v-model="tab">
-                        <v-window-item v-for="item in tabItems" :key="item.value" :value="item.value">
+                        <v-window-item v-for="(item, i) in data.tabItems" :key="i" :value="item.value">
                             <v-card class="mt-4 py-9 px-15">
-                                xxx
+                                <div class="mb-7" v-for="(inf, i) in item.items" :key="i">
+                                    <h2>{{ inf.title }}</h2>
+                                    <div class="d-inline-flex align-center">
+                                        <v-img class="mb-1 ml-1" :width="24" :src="inf.img"></v-img>
+                                        <p class="mb-0">{{ inf.info }}</p>
+                                    </div>
+                                </div>
                             </v-card>
                         </v-window-item>
                     </v-window>
@@ -117,10 +113,41 @@ const tabItems = ref([
 
         .v-card {
             border-radius: 16px;
+
+            h2 {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 31px;
+                margin-bottom: 8px;
+                text-align: right;
+                color: #3B5099;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 31px;
+                text-align: right;
+                color: #5A5A5A;
+            }
         }
     }
 
     @media only screen and (max-width:360px) {
+        .v-card {
+            padding: 12px !important;
+
+            h2 {
+                font-size: 16px !important;
+                line-height: 25px !important;
+            }
+
+            p {
+                font-size: 12px !important;
+                line-height: 19px !important;
+            }
+        }
+
         h2 {
             font-size: 16px;
             line-height: 25px;
