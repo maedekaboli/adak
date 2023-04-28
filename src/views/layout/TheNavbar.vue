@@ -20,7 +20,7 @@ import data from '../../json/layout/navabr.json'
                                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                                 </v-list-item>
                             </RouterLink>
-                            <RouterLink to="/form" custom v-slot="{ navigate }">
+                            <RouterLink to="/newProduct" custom v-slot="{ navigate }">
                                 <v-list-item class="dir-rtl" @click="navigate" role="link">
                                     <v-btn variant="outlined" rounded="xl" color="#122771">
                                         {{ data.buttonText }}
@@ -40,7 +40,7 @@ import data from '../../json/layout/navabr.json'
                             </RouterLink>
                         </ul>
                     </div>
-                    <RouterLink to="/form" custom v-slot="{ navigate }">
+                    <RouterLink to="/newProduct" custom v-slot="{ navigate }">
                         <v-btn @click="navigate" role="link" class="product-form d-sm-block d-none" variant="outlined"
                             rounded="xl" color="#122771">
                             استعلام محصول
