@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 import data from '../../json/layout/navabr.json'
 </script>
 
@@ -6,39 +7,45 @@ import data from '../../json/layout/navabr.json'
     <div class="TheNavbar">
         <v-app-bar flat height="88">
             <v-toolbar absolute color="white" density="compact" height="88">
-                <v-container class="d-flex align-center mx-md-16 mx-auto">
+                <v-container class="d-flex justify-space-between align-center mx-md-16 mx-auto">
                     <v-menu width="100%" transition="slide-y-transition">
                         <template v-slot:activator="{ props }">
                             <v-app-bar-nav-icon v-bind="props" class="d-lg-none d-block"></v-app-bar-nav-icon>
                         </template>
 
                         <v-list>
-                            <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
+                            <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom
+                                v-slot="{ navigate }">
                                 <v-list-item class="dir-rtl" @click="navigate" role="link">
                                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                                 </v-list-item>
                             </RouterLink>
-                            <v-list-item class="dir-rtl">
-                                <v-btn variant="outlined" rounded="xl" color="#122771">
-                                    {{ data.buttonText }}
-                                </v-btn>
-                            </v-list-item>
+                            <RouterLink to="/form" custom v-slot="{ navigate }">
+                                <v-list-item class="dir-rtl" @click="navigate" role="link">
+                                    <v-btn variant="outlined" rounded="xl" color="#122771">
+                                        {{ data.buttonText }}
+                                    </v-btn>
+                                </v-list-item>
+                            </RouterLink>
                         </v-list>
                     </v-menu>
+                    <div class="d-flex align-center">
+                        <v-toolbar-title class="text-md-right text-center ml-md-10 ml-0">Adakmarin</v-toolbar-title>
 
-                    <v-toolbar-title class="text-md-right text-center">Adakmarin</v-toolbar-title>
-
-                    <ul class="navbar-items d-lg-flex d-none">
-                        <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
-                            <li @click="navigate" role="link" class="mb-2"> {{ item.title }}
-                            </li>
-                        </RouterLink>
-                    </ul>
-                    <v-spacer></v-spacer>
-
-                    <v-btn class="ml-2 d-md-block d-none" variant="outlined" rounded="xl" color="#122771">
-                        استعلام محصول
-                    </v-btn>
+                        <ul class="navbar-items d-lg-flex d-none">
+                            <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom
+                                v-slot="{ navigate }">
+                                <li @click="navigate" role="link" class="mb-2"> {{ item.title }}
+                                </li>
+                            </RouterLink>
+                        </ul>
+                    </div>
+                    <RouterLink to="/form" custom v-slot="{ navigate }">
+                        <v-btn @click="navigate" role="link" class="product-form d-sm-block d-none" variant="outlined"
+                            rounded="xl" color="#122771">
+                            استعلام محصول
+                        </v-btn>
+                    </RouterLink>
                 </v-container>
             </v-toolbar>
         </v-app-bar>
@@ -52,6 +59,7 @@ import data from '../../json/layout/navabr.json'
     .v-app-bar {
         border-bottom: 1px solid #EFEFEF;
     }
+
 
     .navbar-items {
         list-style: none;
@@ -94,6 +102,10 @@ import data from '../../json/layout/navabr.json'
 
     @media only screen and (max-width:768px) {
         & {
+            .product-form {
+                height: 30px;
+            }
+
             .v-toolbar__content {
                 height: 36px !important;
 
@@ -110,4 +122,5 @@ import data from '../../json/layout/navabr.json'
 
         }
     }
-}</style>
+}
+</style>

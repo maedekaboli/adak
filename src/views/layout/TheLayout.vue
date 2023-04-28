@@ -16,7 +16,7 @@ import TheFooter from './TheFooter.vue'
 <style>
 @media only screen and (max-width:768px) {
     .v-main {
-        padding-top: 0;
+        padding-top: 36px;
     }
 }
 </style>
