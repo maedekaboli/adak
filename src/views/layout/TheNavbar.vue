@@ -1,15 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-
-const navItems = ref([
-    { title: 'صفحه اصلی', path: '/' },
-    { title: 'خدمات ما', path: '/' },
-    { title: 'مقالات', path: '/blog' },
-    { title: 'تماس با ما', path: '/contactUs' },
-    { title: 'درباره ما', path: '/aboutUs' },
-    { title: 'راهنما', path: '/' },
-
-])
+import data from '../../json/layout/navabr.json'
 </script>
 
 <template>
@@ -23,14 +13,14 @@ const navItems = ref([
                         </template>
 
                         <v-list>
-                            <RouterLink v-for="(item, i) in navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
+                            <RouterLink v-for="(item, i) in data.navItems" :key="i" :to="item.path" custom v-slot="{ navigate }">
                                 <v-list-item class="dir-rtl" @click="navigate" role="link">
                                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                                 </v-list-item>
                             </RouterLink>
                             <v-list-item class="dir-rtl">
                                 <v-btn variant="outlined" rounded="xl" color="#122771">
-                                    استعلام محصول
+                                    {{ data.buttonText }}
                                 </v-btn>
                             </v-list-item>
                         </v-list>
@@ -48,13 +38,6 @@ const navItems = ref([
 
                     <v-btn class="ml-2 d-md-block d-none" variant="outlined" rounded="xl" color="#122771">
                         استعلام محصول
-                    </v-btn>
-
-                    <v-btn variant="text">
-                        <span class="d-md-block d-none">
-                            ورود / ثبت نام
-                        </span>
-                        <v-img width="24" class="mr-1" src="/login.svg"></v-img>
                     </v-btn>
                 </v-container>
             </v-toolbar>

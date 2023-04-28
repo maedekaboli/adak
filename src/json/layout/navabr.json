@@ -1,0 +1,29 @@
+{
+    "buttonText": "استعلام محصول",
+    "navItems": [
+        {
+            "title": "صفحه اصلی",
+            "path": "/"
+        },
+        {
+            "title": "خدمات ما",
+            "path": "/"
+        },
+        {
+            "title": "مقالات",
+            "path": "/blog"
+        },
+        {
+            "title": "تماس با ما",
+            "path": "/contactUs"
+        },
+        {
+            "title": "درباره ما",
+            "path": "/aboutUs"
+        },
+        {
+            "title": "راهنما",
+            "path": "/"
+        }
+    ]
+}
