@@ -1,20 +1,14 @@
 <script setup>
-import { ref } from 'vue'
-
-const socialMedias = ref([
-    { img: '/facebook.svg', title: 'Facebook' },
-    { img: '/whatsapp.svg', title: 'Whatsapp' },
-    { img: '/twitter.svg', title: 'Twitter' },
-    { img: '/linkedin.svg', title: 'Linkedin' },
-
-])
+import data from '../json/layout/socialMedias.json'
 </script>
 
 <template>
     <ul class="SocialMedia">
-        <li v-for="(item, i) in socialMedias" :key="i">
-            <v-img :src="item.img"></v-img>
-        </li>
+        <RouterLink v-for="(item, i) in data" :key="i" :to="item.link" custom v-slot="{ navigate }">
+            <li @click="navigate" role="link">
+                <v-img :src="item.img"></v-img>
+            </li>
+        </RouterLink>
     </ul>
 </template>
 
@@ -23,6 +17,7 @@ const socialMedias = ref([
     display: flex;
 
     li {
+        cursor: pointer;
         width: 40px;
         height: 40px;
         background: #122771;

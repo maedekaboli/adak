@@ -1,0 +1,27 @@
+{
+    "copyRight": "تمامی حقوق متعلق به سایت ....... می باشد",
+    "contactUs": {
+        "title": "تماس با ما",
+        "info": [
+            {
+                "prependAvatar": "/location.svg",
+                "title": "تهران - خیابان جمالزاده شمالی ......."
+            },
+            {
+                "prependAvatar": "/call-calling.svg",
+                "title": "021-44444444"
+            },
+            {
+                "prependAvatar": "/sms.svg",
+                "title": "elham.ajami96@gmail.com"
+            }
+        ]
+    },
+    "cooperation": {
+        "title": "درخواست همکاری ",
+        "familyName": "نام نام خانوادگی",
+        "mobile": "شماره موبایل",
+        "city": "انتخاب شهر",
+        "buttonText": "ثبت درخواست"
+    }
+}

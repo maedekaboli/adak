@@ -1,12 +1,8 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
+import data from '../../json/layout/footer.json'
 
 const SocialMedia = defineAsyncComponent(() => import('../../components/SocialMedia.vue'))
-const contactUs = ref([
-    { prependAvatar: '/location.svg', title: 'تهران - خیابان جمالزاده شمالی .......' },
-    { prependAvatar: '/call-calling.svg', title: '021-44444444' },
-    { prependAvatar: '/sms.svg', title: 'elham.ajami96@gmail.com' }
-])
 </script>
 
 
@@ -16,8 +12,8 @@ const contactUs = ref([
             <v-container>
                 <v-row>
                     <v-col cols="md-6" sm="6" class="contact-us">
-                        <h2>تماس با ما</h2>
-                        <v-list :items="contactUs" item-props lines="three">
+                        <h2>{{ data.contactUs.title }}</h2>
+                        <v-list :items="data.contactUs.info" item-props lines="three">
                             <template v-slot:title="{ title }">
                                 <div>{{ title }}</div>
                             </template>
@@ -29,16 +25,17 @@ const contactUs = ref([
                     </v-col>
                     <v-col cols="md-6" sm="6" class="cooperation">
                         <v-col cols="md-8" sm="12" xs="8">
-                            <h2>درخواست همکاری</h2>
+                            <h2>{{ data.cooperation.title }} </h2>
                             <v-form>
                                 <v-text-field class="mb-3" variant="solo" hide-details
-                                    label="نام نام خانوادگی"></v-text-field>
-                                <v-text-field class="mb-3" variant="solo" hide-details label="شماره موبایل"></v-text-field>
-                                <v-select class="mb-5" label="انتخاب شهر" hide-details
+                                    :label="data.cooperation.familyName"></v-text-field>
+                                <v-text-field class="mb-3" variant="solo" hide-details
+                                    :label="data.cooperation.mobile"></v-text-field>
+                                <v-select class="mb-5" :label="data.cooperation.city" hide-details
                                     :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
                                     variant="solo"></v-select>
                                 <v-btn color="#122771" class="w-100 text-white" size="large">
-                                    ثبت درخواست
+                                    {{ data.cooperation.buttonText }}
                                 </v-btn>
                             </v-form>
                         </v-col>
@@ -46,7 +43,7 @@ const contactUs = ref([
                 </v-row>
             </v-container>
         </div>
-        <div class="bottom-footer">تمامی حقوق متعلق به سایت ....... می باشد </div>
+        <div class="bottom-footer">{{ data.copyRight }} </div>
     </div>
 </template>
 
@@ -87,6 +84,10 @@ const contactUs = ref([
             display: flex;
             padding-top: 0;
             justify-content: end;
+
+            .v-btn {
+                border-radius: 8px !important;
+            }
 
             h2 {
                 color: #F9F9F9;

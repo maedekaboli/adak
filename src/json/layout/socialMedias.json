@@ -1,0 +1,22 @@
+[
+    {
+        "link": "/",
+        "img": "/facebook.svg",
+        "title": "Facebook"
+    },
+    {
+        "link": "/",
+        "img": "/whatsapp.svg",
+        "title": "Whatsapp"
+    },
+    {
+        "link": "/",
+        "img": "/twitter.svg",
+        "title": "Twitter"
+    },
+    {
+        "link": "/",
+        "img": "/linkedin.svg",
+        "title": "Linkedin"
+    }
+]
