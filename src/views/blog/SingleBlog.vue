@@ -43,5 +43,16 @@
         color: #808080;
         margin-bottom: 24px;
     }
-}
-</style>
+
+    @media only screen and (max-width:360px) {
+        h1 {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 33px;
+        }
+    }
+}</style>
