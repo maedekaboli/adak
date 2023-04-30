@@ -3,12 +3,10 @@ import { ref } from 'vue'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-const items = ref([
-    { title: 'کانتینر در انبار ', amount: 200 },
-    { title: 'دفتر فعال در جهان', amount: 100 },
-    { title: 'کشتیرانی', amount: 500 },
-    { title: 'مشتری', amount: 3480 }
-])
+defineProps({
+    items: Array
+})
+
 const breakpoints = ref({
     0: {
         itemsToShow: 1,

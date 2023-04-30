@@ -2,18 +2,19 @@
 import { ref } from 'vue'
 import * as yup from 'yup';
 import { Form, Field } from 'vee-validate'
+import api from '../../api/api'
 
 const product = ref({
-    name: '',
-    source: '',
+    product_brand_name: '',
+    origin: '',
     destination: '',
     weight: '',
     volume: '',
-    packageType: '',
-    numberOfPackages: '',
+    package_type: '',
+    package_count: '',
     container: '',
-    shippingMethod: '',
-    desc: '',
+    shipping_method: '',
+    description: '',
     file: ''
 })
 const schema = yup.object({
@@ -23,8 +24,23 @@ const schema = yup.object({
     weight: yup.string().required('وزن اجباری است').label('وزن')
 });
 
-const onSubmit = (values) => {
+const onSubmit = () => {
     console.log(product.value)
+    api.post(`inquiry`, product.value).then(res => {
+        product.value = {
+            product_brand_name: ' ',
+            origin: ' ',
+            destination: ' ',
+            weight: ' ',
+            volume: '',
+            package_type: '',
+            package_count: '',
+            container: '',
+            shipping_method: '',
+            description: '',
+            file: ''
+        }
+    })
 }
 </script>
 
@@ -36,14 +52,14 @@ const onSubmit = (values) => {
                 <Form as="v-form" :validation-schema="schema" @submit="onSubmit">
                     <v-row class="ma-auto">
                         <v-col cols="lg-3" md="4" sm="6">
-                            <Field name="name" v-model="product.name" v-slot="{ field, errors }">
-                                <v-text-field v-bind="field" v-model.trim="product.name" label="نام تجاری کالا"
-                                    variant="outlined" :error-messages="errors"></v-text-field>
+                            <Field name="name" v-model="product.product_brand_name" v-slot="{ field, errors }">
+                                <v-text-field v-bind="field" v-model.trim="product.product_brand_name"
+                                    label="نام تجاری کالا" variant="outlined" :error-messages="errors"></v-text-field>
                             </Field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <Field name="source" v-model="product.source" v-slot="{ field, errors }">
-                                <v-text-field v-bind="field" v-model.trim="product.source" label="مبدا" variant="outlined"
+                            <Field name="source" v-model="product.origin" v-slot="{ field, errors }">
+                                <v-text-field v-bind="field" v-model.trim="product.origin" label="مبدا" variant="outlined"
                                     :error-messages="errors"></v-text-field>
                             </Field>
                         </v-col>
@@ -63,11 +79,11 @@ const onSubmit = (values) => {
                             <v-text-field v-model.trim="product.volume" label="حجم" variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <v-text-field v-model.trim="product.packageType" label="نوع بسته بندی"
+                            <v-text-field v-model.trim="product.package_type" label="نوع بسته بندی"
                                 variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <v-text-field v-model.trim="product.numberOfPackages" label="تعداد بسته بندی"
+                            <v-text-field v-model.trim="product.package_count" label="تعداد بسته بندی"
                                 variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
@@ -75,18 +91,19 @@ const onSubmit = (values) => {
                                 variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <v-text-field v-model.trim="product.shippingMethod" label="روش حمل"
+                            <v-text-field v-model.trim="product.shipping_method" label="روش حمل"
                                 variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <v-text-field v-model.trim="product.file" label="آپلود فایل" variant="outlined"></v-text-field>
+                            <v-file-input v-model="product.file" label="آپلود فایل" variant="outlined"></v-file-input>
                         </v-col>
                         <v-col cols="12">
-                            <v-textarea label="توضیحات" auto-grow variant="outlined" rows="5" row-height="15"></v-textarea>
+                            <v-textarea v-model="product.description" label="توضیحات" auto-grow variant="outlined" rows="5"
+                                row-height="15"></v-textarea>
                         </v-col>
                     </v-row>
 
-                    <v-btn type="submit" class="mt-5" size="large" color="primary">
+                    <v-btn type="submit" class="mt-5 text-white" size="large" color="#3B5099">
                         ثبت کالا
                     </v-btn>
                 </Form>

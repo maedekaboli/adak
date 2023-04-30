@@ -1,11 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-
-const items = ref([
-    { title: 'لورم ایپسوم', img: 'ss', text: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، ' },
-    { title: 'لورم ایپسوم', img: 'ss', text: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، ' },
-    { title: 'لورم ایپسوم', img: 'ss', text: 'و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، ' }
-])
+defineProps({
+    items: Array
+})
 </script>
 
 <template>
@@ -15,10 +11,13 @@ const items = ref([
             <v-row class="justify-center">
                 <v-col class="d-flex flex-wrap justify-center" v-for="(item, i) in items" :key="i" cols="md-4" sm="6">
                     <v-sheet class="mb-4 OurClients-img">
-                        <v-img width="68" height="68" cover src="/blog1.svg" class="circle-question"></v-img>
+                        <v-img width="68" height="68" cover :src="item.featured_image" class="circle-question"></v-img>
                     </v-sheet>
                     <v-sheet>
-                        {{ item.text }}
+                        <h3>{{ item.name }}</h3>
+                        <p>
+                            {{ item.description }}
+                        </p>
                     </v-sheet>
                 </v-col>
             </v-row>
@@ -49,6 +48,23 @@ const items = ref([
         }
     }
 
+    h3 {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        color: #3B5099;
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 33px;
+        text-align: center;
+        color: #808080;
+    }
+
     .OurClients-img {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 68px;
@@ -64,6 +80,14 @@ const items = ref([
     }
 
     @media only screen and (max-width:768px) {
+        p {
+            font-size: 12px;
+        }
+
+        h3 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
 
         .OurClients-img {
             width: 201px;
@@ -71,6 +95,7 @@ const items = ref([
         }
 
         .v-sheet {
+            padding: 17px;
 
             .v-img {
                 width: 34px !important;
