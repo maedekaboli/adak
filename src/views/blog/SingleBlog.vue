@@ -1,19 +1,26 @@
+<script setup>
+import { useRoute } from 'vue-router'
+import api from '../../api/api'
+import { ref } from 'vue'
+
+const route = useRoute()
+const blog = ref({})
+
+if (route.params.id) {
+    api.get(`post/${route.params.id}`).then(res => {
+        blog.value = res?.data?.data
+    })
+}
+</script>
+
 <template>
     <div class="SingleBlog">
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <v-img height="400" src="/blog2.svg"></v-img>
-                    <h1>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</h1>
-                    <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                        است، و
-                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
-                        زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد و با استفاده از
-                        طراحان
-                        گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-                        تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و
-                        سه
-                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد</p>
+                    <v-img height="400" :src="blog.featured_image"></v-img>
+                    <h1>{{ blog.title }}</h1>
+                    <p>{{ blog.content }}</p>
                 </v-col>
             </v-row>
         </v-container>
@@ -55,4 +62,5 @@
             line-height: 33px;
         }
     }
-}</style>
+}
+</style>
