@@ -7,7 +7,7 @@ defineProps({
 <template>
     <div class="HomeSlider">
         <v-container class="pt-0" fluid>
-            <v-carousel height="400">
+            <v-carousel hide-delimiter-background cycle height="400">
                 <template v-slot:next="{ props }">
                     <v-btn class="d-lg-block d-none" size="33" variant="outlined" color="black" @click="props.onClick"
                         icon="mdi-chevron-left"></v-btn>
@@ -16,7 +16,7 @@ defineProps({
                     <v-btn class="d-lg-block d-none" size="33" variant="outlined" color="black" @click="props.onClick"
                         icon="mdi-chevron-right"></v-btn>
                 </template>
-                <v-carousel-item v-for="(item, i) in items" :key="i">
+                <v-carousel-item class="v-window-item--active" v-for="(item, i) in items" :key="i">
                     <v-container class="pa-0">
                         <v-row>
                             <v-col cols="sm-7">
@@ -48,7 +48,6 @@ defineProps({
     }
 
     .v-carousel__controls {
-        background: unset;
 
         .v-btn {
             width: 20px;
