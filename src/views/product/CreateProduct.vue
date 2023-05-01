@@ -15,7 +15,7 @@ const product = ref({
     container: '',
     shipping_method: '',
     description: '',
-    file: ''
+    file: null
 })
 const schema = yup.object({
     name: yup.string().required('نام تجاری کالا اجباری است').label('نام تجاری کالا'),
@@ -24,23 +24,24 @@ const schema = yup.object({
     weight: yup.string().required('وزن اجباری است').label('وزن')
 });
 
-const onSubmit = () => {
-    console.log(product.value)
+const onSubmit = (values, { resetForm }) => {
     api.post(`inquiry`, product.value).then(res => {
-        product.value = {
-            product_brand_name: ' ',
-            origin: ' ',
-            destination: ' ',
-            weight: ' ',
-            volume: '',
-            package_type: '',
-            package_count: '',
-            container: '',
-            shipping_method: '',
-            description: '',
-            file: ''
-        }
+        resetForm();
+        product.value.file = null
     })
+}
+const image = ref(null)
+const onFileChange = (event) => {
+    var input = event.target;
+    if (input.files) {
+
+        var reader = new FileReader();
+        reader.onload = (e) => {
+            product.value.file = e.target.result
+        }
+        image.value = (input.files[0]);
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 </script>
 
@@ -95,7 +96,8 @@ const onSubmit = () => {
                                 variant="outlined"></v-text-field>
                         </v-col>
                         <v-col cols="lg-3" md="4" sm="6">
-                            <v-file-input v-model="product.file" label="آپلود فایل" variant="outlined"></v-file-input>
+                            <v-file-input type="file" @change="onFileChange" v-model="product.file" label="آپلود فایل"
+                                variant="outlined"></v-file-input>
                         </v-col>
                         <v-col cols="12">
                             <v-textarea v-model="product.description" label="توضیحات" auto-grow variant="outlined" rows="5"
