@@ -48,6 +48,17 @@ const onFileChange = (event) => {
 <template>
     <div class="CreateProduct py-5">
         <v-container>
+            <v-col class="ma-auto text-center mb-5" cols="lg-8" sm="10">
+                <h1>طراحان گرافیک</h1>
+                <p>و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
+                    برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
+                    زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد و با استفاده از طراحان
+                    گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                    تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
+                    درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد
+
+                </p>
+            </v-col>
             <v-card class="pa-5">
                 <v-card-title>استعلام محصول</v-card-title>
                 <Form as="v-form" :validation-schema="schema" @submit="onSubmit">
@@ -118,5 +129,48 @@ const onFileChange = (event) => {
 .CreateProduct {
     direction: rtl;
     background: #EFEFEF;
+
+    h1 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 37px;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 33px;
+        color: #808080;
+    }
+
+    @media only screen and (max-width:768px) {
+        h1 {
+            font-size: 20px;
+            line-height: 31px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+    }
+
+    @media only screen and (max-width:360px) {
+
+        h1 {
+            font-size: 16px;
+            line-height: 25px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+    }
 }
 </style>
