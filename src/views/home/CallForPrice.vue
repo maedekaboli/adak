@@ -1,5 +1,5 @@
 <script setup>
-import data from '../../json/home/CallForPrice.json'
+import data from '../../json/home/callForPrice.json'
 </script>
 
 <template>
