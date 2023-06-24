@@ -21,6 +21,10 @@ defineProps({
         font-size: 16px;
         line-height: 25px;
         color: #3B5099;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
 
         &::before {
             content: " ";
@@ -37,6 +41,10 @@ defineProps({
         font-weight: 700;
         font-size: 14px;
         color: #808080;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
     }
 
     @media only screen and (max-width:768px) {
@@ -50,4 +58,5 @@ defineProps({
             line-height: 33px;
         }
     }
-}</style>
+}
+</style>
